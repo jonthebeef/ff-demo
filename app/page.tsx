@@ -1,9 +1,11 @@
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import SignInButtonWrapper from "@/components/SignInButtonWrapper";
+import NavSignIn from "@/components/NavSignIn";
 import LinkButton from "@/components/LinkButton";
 import FeatureCard from "@/components/FeatureCard";
 import PricingSignInButton from "@/components/PricingSignInButton";
 import PricingLinkButton from "@/components/PricingLinkButton";
+import FloatingBalls from "@/components/FloatingBalls";
 
 export default function LandingPage() {
   return (
@@ -27,72 +29,82 @@ export default function LandingPage() {
         <div style={{ fontSize: "20px", fontWeight: "700", color: "#1e293b" }}>
           Founder Focus
         </div>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+        <div>
+          <SignedOut>
+            <NavSignIn />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
       </nav>
 
       {/* Hero Section */}
       <section
         style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "80px 40px",
+          position: "relative",
+          width: "100%",
+          padding: "80px 0",
           textAlign: "center",
+          overflow: "hidden",
         }}
       >
-        <h1
-          style={{
-            fontSize: "64px",
-            fontWeight: "800",
-            color: "#1e293b",
-            lineHeight: "1.1",
-            marginBottom: "24px",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Turn your startup chaos
-          <br />
-          into clear, confident action
-        </h1>
-        <p
-          style={{
-            fontSize: "22px",
-            color: "#64748b",
-            marginBottom: "40px",
-            maxWidth: "700px",
-            margin: "0 auto 40px",
-            lineHeight: "1.6",
-          }}
-        >
-          Stop guessing what to work on next. Let AI prioritise your startup to-do list so you can launch faster.
-        </p>
+        <FloatingBalls />
 
-        <SignedOut>
-          <SignInButtonWrapper />
-          <p
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto", padding: "0 40px" }}>
+          <h1
             style={{
-              marginTop: "16px",
-              fontSize: "14px",
-              color: "#94a3b8",
+              fontSize: "64px",
+              fontWeight: "800",
+              color: "#1e293b",
+              lineHeight: "1.1",
+              marginBottom: "24px",
+              letterSpacing: "-0.02em",
             }}
           >
-            £10/month — cancel any time
-          </p>
-        </SignedOut>
-
-        <SignedIn>
-          <LinkButton href="/dashboard">Open my tasks</LinkButton>
+            Turn your startup chaos
+            <br />
+            into clear, confident action
+          </h1>
           <p
             style={{
-              marginTop: "16px",
-              fontSize: "14px",
-              color: "#94a3b8",
+              fontSize: "22px",
+              color: "#64748b",
+              marginBottom: "40px",
+              maxWidth: "700px",
+              margin: "0 auto 40px",
+              lineHeight: "1.6",
             }}
           >
-            Access your task list
+            Stop guessing what to work on next. Let AI prioritise your startup to-do list so you can launch faster.
           </p>
-        </SignedIn>
+
+          <SignedOut>
+            <SignInButtonWrapper />
+            <p
+              style={{
+                marginTop: "16px",
+                fontSize: "14px",
+                color: "#94a3b8",
+              }}
+            >
+              £10/month — cancel any time
+            </p>
+          </SignedOut>
+
+          <SignedIn>
+            <LinkButton href="/dashboard">Open my tasks</LinkButton>
+            <p
+              style={{
+                marginTop: "16px",
+                fontSize: "14px",
+                color: "#94a3b8",
+              }}
+            >
+              Access your task list
+            </p>
+          </SignedIn>
+        </div>
       </section>
 
       {/* How It Works Section */}

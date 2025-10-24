@@ -67,7 +67,7 @@ Fill in your `.env.local` with the following:
 - `STRIPE_WEBHOOK_SECRET` (you'll get this in step 4)
 
 **Site URL**:
-- `NEXT_PUBLIC_SITE_URL=http://localhost:3000`
+- `NEXT_PUBLIC_SITE_URL=http://localhost:3002`
 
 ### 3. Start the Development Server
 
@@ -75,14 +75,14 @@ Fill in your `.env.local` with the following:
 npm run dev
 ```
 
-The app will be running at http://localhost:3000
+The app will be running at http://localhost:3002
 
 ### 4. Set Up Stripe Webhook Listener
 
 Open a **new terminal** and run:
 
 ```bash
-stripe listen --forward-to localhost:3000/api/webhook/stripe
+stripe listen --forward-to localhost:3002/api/webhook/stripe
 ```
 
 This will output a webhook signing secret starting with `whsec_...`
@@ -97,7 +97,7 @@ STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxx
 
 ### 5. Test the Flow
 
-1. Go to http://localhost:3000
+1. Go to http://localhost:3002
 2. Click **Sign In** (create a test account or sign in)
 3. Click **Upgrade to Premium**
 4. Click **Upgrade Now**
@@ -166,7 +166,7 @@ CLERK_SECRET_KEY=
 STRIPE_SECRET_KEY=
 STRIPE_PRICE_ID=
 STRIPE_WEBHOOK_SECRET=
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_URL=http://localhost:3002
 ```
 
 ## License
